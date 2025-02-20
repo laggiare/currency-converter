@@ -30,22 +30,3 @@ document.getElementById('converter-form').addEventListener('submit', async (e) =
     }
     resultElement.classList.remove('converting');
 });
-
-// Add dark mode toggle
-document.getElementById('theme-toggle').addEventListener('click', () => {
-    const isDark = document.body.classList.toggle('dark-mode');
-    document.getElementById('theme-toggle').textContent = isDark ? 'Light Mode' : 'Dark Mode';
-    // Optionally save preference in localStorage
-    localStorage.setItem('darkMode', isDark);
-});
-
-// Load saved preference on page load
-window.addEventListener('load', () => {
-    const isDark = localStorage.getItem('darkMode') === 'true';
-    if (isDynamic) {
-        document.body.classList.add('dark-mode');
-        document.getElementById('theme-toggle').textContent = 'Light Mode';
-    } else {
-        document.getElementById('theme-toggle').textContent = 'Dark Mode';
-    }
-});

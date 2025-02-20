@@ -11,30 +11,31 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #74ebd5, #acb6e5); /* Gradient background */
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
     color: #333;
 }
 
 .container {
-    background: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+    background: rgba(255, 255, 255, 0.95);
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 450px; /* Slightly wider for comfort */
+    max-width: 450px;
     text-align: center;
+    color: #333; /* Added explicit color for container */
 }
 
 h1 {
     font-size: 2rem;
     margin-bottom: 25px;
-    color: #2c3e50; /* Darker blue-gray for elegance */
+    color: #2c3e50;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* More spacing between elements */
+    gap: 15px;
 }
 
 input, select {
@@ -43,59 +44,60 @@ input, select {
     border: 2px solid #ddd;
     border-radius: 8px;
     outline: none;
-    transition: border-color 0.3s ease; /* Smooth hover effect */
+    transition: border-color 0.3s ease;
+    color: #333; /* Added explicit color for inputs */
 }
 
 input:focus, select:focus {
-    border-color: #3498db; /* Blue highlight on focus */
+    border-color: #3498db;
 }
 
 select {
-    appearance: none; /* Remove default dropdown arrow */
+    appearance: none;
     background: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
     background-size: 14px;
-    padding-right: 30px; /* Space for custom arrow */
+    padding-right: 30px;
 }
 
 span {
     font-size: 1rem;
-    color: #7f8c8d; /* Subtle gray */
+    color: #7f8c8d;
     margin: 0 5px;
 }
 
 button {
     padding: 12px;
     font-size: 1.1rem;
-    background: #3498db; /* Bright blue */
+    background: #3498db;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background: #2980b9; /* Darker blue on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+    background: #2980b9;
+    transform: translateY(-2px);
 }
 
 button:active {
-    transform: translateY(0); /* Reset on click */
+    transform: translateY(0);
 }
 
 #result {
     margin-top: 20px;
     font-size: 1.2rem;
     font-weight: bold;
-    color: #27ae60; /* Green for success */
-    min-height: 2.4em; /* Space for two lines */
-    white-space: pre-line; /* Respect line breaks */
+    color: #27ae60;
+    min-height: 2.4em;
+    white-space: pre-line;
     position: relative;
 }
 
 #result sup {
-    font-size: 0.7em; /* Smaller asterisk */
-    color: #7f8c8d; /* Subtle gray to match your design */
+    font-size: 0.7em;
+    color: #7f8c8d;
     vertical-align: super;
     margin-left: 2px;
 }
@@ -103,10 +105,10 @@ button:active {
 #result::after {
     content: attr(data-footnote);
     display: block;
-    font-size: 0.7rem; /* Smaller text for footnote */
-    color: #7f8c8d; /* Subtle gray */
+    font-size: 0.7rem;
+    color: #7f8c8d;
     margin-top: 5px;
-    font-style: italic; /* Optional: makes it look like a footnote */
+    font-style: italic;
 }
 
 #result.converting::before {
@@ -114,7 +116,7 @@ button:active {
     display: inline-block;
     width: 16px;
     height: 16px;
-    border: 2px solid #3498db; /* Matches your button color */
+    border: 2px solid #3498db;
     border-top-color: transparent;
     border-radius: 50%;
     animation: spin 1s linear infinite;
@@ -124,65 +126,4 @@ button:active {
 
 @keyframes spin {
     to { transform: rotate(360deg); }
-}
-
-/* Dark mode styles */
-body.dark-mode {
-    background: linear-gradient(135deg, #1a2a3a, #2a3c4d);
-    color: #fff;
-}
-
-.container.dark-mode {
-    background: rgba(60, 60, 60, 0.95); /* Medium gray with transparency */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-body.dark-mode h1 {
-    color: #ecf0f1; /* Light gray-white for visibility */
-}
-
-body.dark-mode input, 
-body.dark-mode select, 
-body.dark-mode button {
-    border-color: #444;
-    background: #2a3c4d;
-    color: #fff; /* Ensure white text for inputs and selects */
-}
-
-body.dark-mode select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: url('data:image/svg+xml;utf8,<svg fill="%23fff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
-    background-size: 14px;
-    padding-right: 30px;
-    border-color: #444;
-    background: #2a3c4d;
-    color: #fff;
-}
-
-/* Ensure dropdown options are white */
-body.dark-mode select option {
-    background: #2a3c4d; /* Match select background */
-    color: #fff; /* White text for options */
-}
-
-body.dark-mode span {
-    color: #bdc3c7; /* Lighter gray for "to" text */
-}
-
-body.dark-mode button {
-    background: #4a7cb9;
-}
-
-body.dark-mode button:hover {
-    background: #3966a3;
-}
-
-body.dark-mode #result {
-    color: #2ecc71;
-}
-
-body.dark-mode #result::after {
-    color: #bdc3c7;
 }
