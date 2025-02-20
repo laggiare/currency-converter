@@ -107,3 +107,102 @@ button:active {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #27ae60;
+    min-height: 2.4em; /* Space for two lines */
+    white-space: pre-line; /* Respect line breaks */
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #27ae60;
+    min-height: 2.4em;
+    white-space: pre-line;
+    position: relative;
+}
+
+#result sup {
+    font-size: 0.7em; /* Smaller asterisk */
+    color: #7f8c8d; /* Subtle gray to match your design */
+    vertical-align: super;
+    margin-left: 2px;
+}
+
+#result::after {
+    content: attr(data-footnote);
+    display: block;
+    font-size: 0.7rem; /* Smaller text for footnote */
+    color: #7f8c8d; /* Subtle gray */
+    margin-top: 5px;
+    font-style: italic; /* Optional: makes it look like a footnote */
+}
+
+/* Dark mode styles */
+
+body.dark-mode {
+    background: linear-gradient(135deg, #1a2a3a, #2a3c4d);
+    color: #fff;
+}
+
+.container.dark-mode {
+    background: rgba(60, 60, 60, 0.95); /* Medium gray with transparency */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+}
+
+body.dark-mode h1 {
+    color: #ecf0f1;
+}
+
+body.dark-mode input, 
+body.dark-mode select, 
+body.dark-mode button {
+    border-color: #444;
+    background: #2a3c4d;
+    color: #fff; /* Ensure white text for inputs and selects */
+}
+
+body.dark-mode select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg fill="%23fff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    background-size: 14px;
+    padding-right: 30px;
+    border-color: #444;
+    background: #2a3c4d;
+    color: #fff;
+}
+
+/* Ensure dropdown options are white */
+body.dark-mode select option {
+    background: #2a3c4d; /* Match select background */
+    color: #fff; /* White text for options */
+}
+
+body.dark-mode span {
+    color: #bdc3c7; /* Lighter gray for "to" text */
+}
+
+body.dark-mode button {
+    background: #4a7cb9;
+}
+
+body.dark-mode button:hover {
+    background: #3966a3;
+}
+
+body.dark-mode #result {
+    color: #2ecc71;
+}
+
+body.dark-mode #result::after {
+    color: #bdc3c7;
+}
+
