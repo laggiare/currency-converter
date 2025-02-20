@@ -1,43 +1,109 @@
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5); /* Gradient background */
+    color: #333;
 }
 
 .container {
+    background: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+    width: 100%;
+    max-width: 450px; /* Slightly wider for comfort */
     text-align: center;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #2c3e50; /* Darker blue-gray for elegance */
 }
 
-input, select, button {
-    padding: 10px;
-    margin: 5px;
-    font-size: 16px;
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* More spacing between elements */
+}
+
+input, select {
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease; /* Smooth hover effect */
+}
+
+input:focus, select:focus {
+    border-color: #3498db; /* Blue highlight on focus */
+}
+
+select {
+    appearance: none; /* Remove default dropdown arrow */
+    background: url('data:image/svg+xml;utf8,<svg fill="%23333" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    background-size: 14px;
+    padding-right: 30px; /* Space for custom arrow */
+}
+
+span {
+    font-size: 1rem;
+    color: #7f8c8d; /* Subtle gray */
+    margin: 0 5px;
 }
 
 button {
-    background-color: #4CAF50;
+    padding: 12px;
+    font-size: 1.1rem;
+    background: #3498db; /* Bright blue */
     color: white;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease; /* Smooth transitions */
 }
 
 button:hover {
-    background-color: #45a049;
+    background: #2980b9; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+button:active {
+    transform: translateY(0); /* Reset on click */
 }
 
 #result {
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #27ae60; /* Green for success */
+    min-height: 1.2em; /* Prevent layout shift */
+}
+
+#result.converting::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #3498db; /* Matches your button color */
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }

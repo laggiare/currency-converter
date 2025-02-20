@@ -1,22 +1,24 @@
 document.getElementById('converter-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    console.log('Form submitted'); // Check if the event fires
-
     const amount = document.getElementById('amount').value;
     const fromCurrency = document.getElementById('from-currency').value;
     const toCurrency = document.getElementById('to-currency').value;
     const resultElement = document.getElementById('result');
-    console.log('Inputs:', amount, fromCurrency, toCurrency); // Verify input values
+
+    resultElement.classList.add('converting');
+    resultElement.textContent = 'Converting...';
 
     try {
-        console.log('Fetching from:', `https://open.er-api.com/v6/latest/${fromCurrency}`);
-        const response = await fetch(`https://open.er-api.com/v6/latest/${fromCurrency}`);
-        const data = await response.json();
-        console.log('API response:', data); // See what the API returns
-
+        // Start the API fetch
+        const fetchPromise = fetch(`https://open.er-api.com/v6/latest/${fromCurrency}`).then(response => response.json());
+        // Ensure spinner shows for at least 500ms
+        const delayPromise = new Promise(resolve => setTimeout(resolve, 500));
+        
+        // Wait for both the fetch and the minimum delay to complete
+        const [data] = await Promise.all([fetchPromise, delayPromise]);
+        
         if (data.result === 'success') {
             const rate = data.rates[toCurrency];
-            console.log('Rate:', rate); // Check the rate
             const convertedAmount = (amount * rate).toFixed(2);
             resultElement.textContent = `${amount} ${fromCurrency} = ${convertedAmount} ${toCurrency}`;
         } else {
@@ -24,6 +26,6 @@ document.getElementById('converter-form').addEventListener('submit', async (e) =
         }
     } catch (error) {
         resultElement.textContent = 'Something went wrong. Please try again.';
-        console.error('Error:', error); // Log the error details
     }
+    resultElement.classList.remove('converting');
 });
